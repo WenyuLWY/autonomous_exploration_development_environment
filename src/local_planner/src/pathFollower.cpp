@@ -223,9 +223,9 @@ int main(int argc, char** argv)
 
   ros::Subscriber subStop = nh.subscribe<std_msgs::Int8> ("/stop", 5, stopHandler);
 
-  ros::Publisher pubSpeed = nh.advertise<geometry_msgs::TwistStamped> ("/cmd_vel", 5);
-  geometry_msgs::TwistStamped cmd_vel;
-  cmd_vel.header.frame_id = "vehicle";
+  ros::Publisher pubSpeed = nh.advertise<geometry_msgs::Twist> ("/cmd_vel", 5);
+  geometry_msgs::Twist cmd_vel;
+  // cmd_vel.header.frame_id = "vehicle";
 
   if (autonomyMode) {
     joySpeed = autonomySpeed / maxSpeed;
@@ -331,10 +331,10 @@ int main(int argc, char** argv)
 
       pubSkipCount--;
       if (pubSkipCount < 0) {
-        cmd_vel.header.stamp = ros::Time().fromSec(odomTime);
-        if (fabs(vehicleSpeed) <= maxAccel / 100.0) cmd_vel.twist.linear.x = 0;
-        else cmd_vel.twist.linear.x = vehicleSpeed;
-        cmd_vel.twist.angular.z = vehicleYawRate;
+        // cmd_vel.header.stamp = ros::Time().fromSec(odomTime);
+        if (fabs(vehicleSpeed) <= maxAccel / 100.0) cmd_vel.linear.x = 0;
+        else cmd_vel.linear.x = vehicleSpeed;
+        cmd_vel.angular.z = vehicleYawRate;
         pubSpeed.publish(cmd_vel);
 
         pubSkipCount = pubSkipNum;
