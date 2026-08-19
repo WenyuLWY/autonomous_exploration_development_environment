@@ -10,7 +10,6 @@ install
 
 .DS_Store
 
-src/vehicle_simulator/mesh/*
 
 !src/vehicle_simulator/mesh/matterport
 
