@@ -1,5 +1,7 @@
-<img src="img/header.jpg" alt="Header" width="100%"/>
+Modifications:
 
-The repository is meant for leveraging system development and robot deployment for ground-based autonomous navigation and exploration. Containing a variety of simulation environments, autonomous navigation modules such as collision avoidance, terrain traversability analysis, waypoint following, etc, and a set of visualization tools, users can develop autonomous navigation systems and later on port those systems onto real robots for deployment.
+add indoor env as an example
 
-Please use instructions on our [project page](https://www.cmu-exploration.com).
+change cmd_vel topic 
+
+remove velodyne_simulator pkg
