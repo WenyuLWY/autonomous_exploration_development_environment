@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   pcl_ros
+  gazebo_msgs
 )
 
 find_package(OpenCV REQUIRED)
