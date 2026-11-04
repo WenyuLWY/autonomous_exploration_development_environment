@@ -4,7 +4,7 @@
   <arg name="sensorOffsetY" default="0.0"/>
   <arg name="cameraOffsetZ" default="0.0"/>
   <arg name="twoWayDrive" default="true"/>
-  <arg name="maxSpeed" default="2.0"/>
+  <arg name="maxSpeed" default="0.5"/>
   <arg name="autonomyMode" default="true"/>
   <arg name="autonomySpeed" default="2.0"/>
   <arg name="joyToSpeedDelay" default="2.0"/>
@@ -59,13 +59,17 @@
     <param name="pubSkipNum" value="1" />
     <param name="twoWayDrive" value="$(var twoWayDrive)" />
     <param name="lookAheadDis" value="0.5" />
-    <param name="yawRateGain" value="7.5" />
-    <param name="stopYawRateGain" value="7.5" />
-    <param name="maxYawRate" value="90.0" />
+    <!-- 4.5 -->
+    <param name="yawRateGain" value="4.5" />
+    <param name="stopYawRateGain" value="4.5" />
+    <!-- 90 -->
+    <param name="maxYawRate" value="45.0" />
     <param name="maxSpeed" value="$(var maxSpeed)" />
-    <param name="maxAccel" value="2.5" />
+    <!-- 2.5 -->
+    <param name="maxAccel" value="1.0" />
     <param name="switchTimeThre" value="1.0" />
-    <param name="dirDiffThre" value="0.1" />
+    <!-- 0.1 -->
+    <param name="dirDiffThre" value="0.3" />
     <param name="stopDisThre" value="0.2" />
     <param name="slowDwnDisThre" value="0.85" />
     <param name="useInclRateToSlow" value="false" />
@@ -84,8 +88,8 @@
     <param name="joyToSpeedDelay" value="$(var joyToSpeedDelay)" />
   </node>
 
-  <node pkg="tf2_ros" exec="static_transform_publisher" name="vehicleTransPublisher" args="-$(var sensorOffsetX) -$(var sensorOffsetY) 0 0 0 0 /sensor /vehicle"/>
+  <!-- <node pkg="tf2_ros" exec="static_transform_publisher" name="vehicleTransPublisher" args="-$(var sensorOffsetX) -$(var sensorOffsetY) 0 0 0 0 /sensor /vehicle"/> -->
 
-  <node pkg="tf2_ros" exec="static_transform_publisher" name="sensorTransPublisher" args="0 0 $(var cameraOffsetZ) -1.5707963 0 -1.5707963 /sensor /camera"/>
+  <!-- <node pkg="tf2_ros" exec="static_transform_publisher" name="sensorTransPublisher" args="0 0 $(var cameraOffsetZ) -1.5707963 0 -1.5707963 /sensor /camera"/> -->
 
 </launch>

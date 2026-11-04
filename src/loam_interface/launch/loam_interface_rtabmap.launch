@@ -1,0 +1,13 @@
+<launch>
+
+  <node pkg="loam_interface" exec="loamInterface" name="loamInterface" output="screen">
+    <param name="stateEstimationTopic" value="/icp_odom" />
+    <!-- <param name="laserScanTopic" value="/rslidar_points" /> -->
+    <param name="registeredScanTopic" value="/rslidar_points_registered" />
+    <param name="flipStateEstimation" value="false" />
+    <param name="flipRegisteredScan" value="false" />
+    <param name="sendTF" value="false" />
+    <param name="reverseTF" value="false" />
+  </node>
+
+</launch>
